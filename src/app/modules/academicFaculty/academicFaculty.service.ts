@@ -3,8 +3,8 @@ import { paginationHelpers } from '../../../helpers/paginationHelper';
 import { IGenericResponse } from '../../../interfaces/common';
 import { IPaginationOptions } from '../../../interfaces/pagination';
 import { prisma } from '../../../shared/prisma';
-import { academicSemesterSearchableFields } from './academicSemester.constants';
-import { IAcademicSemesterFilterRequest } from './academicSemester.interface';
+import { academicSemesterSearchableFields } from './academicFaculty.constants';
+import { IAcademicSemesterFilterRequest } from './academicFaculty.interface';
 
 const createAcademicSemester = async (
   data: AcademicSemester

@@ -24,6 +24,11 @@
             "date": 1692418564060,
             "name": "E:\\WEB\\Level-2\\Milestone-6-SQL\\university-management-core-service-starter\\logs\\winston\\successes\\phu-2023-19-08-10-success.log",
             "hash": "3312591019c0d2820a91b9c18f2ec690917cf1379c2e9fb6566c6bd273db60bb"
+        },
+        {
+            "date": 1692505401600,
+            "name": "E:\\WEB\\Level-2\\Milestone-6-SQL\\university-management-core-service-starter\\logs\\winston\\successes\\phu-2023-20-08-10-success.log",
+            "hash": "d197004fe8e5df8f4770409b5abc68020a9e1c05ed3abefb5365a0a3314ad3e4"
         }
     ],
     "hashType": "sha256"

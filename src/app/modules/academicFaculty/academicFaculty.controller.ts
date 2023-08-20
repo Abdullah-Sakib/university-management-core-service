@@ -4,7 +4,7 @@ import httpStatus from 'http-status';
 import catchAsync from '../../../shared/catchAsync';
 import pick from '../../../shared/pick';
 import sendResponse from '../../../shared/sendResponse';
-import { academicSemesterFilterableFields } from './academicSemester.constants';
+import { academicSemesterFilterableFields } from './academicFaculty.constants';
 import { AcademicSemesterService } from './academicSemester.service';
 
 const createAcademicSemester: RequestHandler = catchAsync(async (req, res) => {
