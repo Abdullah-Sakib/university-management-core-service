@@ -1,28 +1,28 @@
-import { AcademicSemester } from '@prisma/client';
+import { AcademicFaculty } from '@prisma/client';
 import { RequestHandler } from 'express';
 import httpStatus from 'http-status';
 import catchAsync from '../../../shared/catchAsync';
 import pick from '../../../shared/pick';
 import sendResponse from '../../../shared/sendResponse';
-import { academicSemesterFilterableFields } from './academicFaculty.constants';
-import { AcademicSemesterService } from './academicSemester.service';
+import { academicFacultyFilterableFields } from './academicFaculty.constants';
+import { AcademicFacultyService } from './academicFaculty.service';
 
-const createAcademicSemester: RequestHandler = catchAsync(async (req, res) => {
-  const result = await AcademicSemesterService.createAcademicSemester(req.body);
+const createAcademicFaculty: RequestHandler = catchAsync(async (req, res) => {
+  const result = await AcademicFacultyService.createAcademicFaculty(req.body);
 
-  sendResponse<AcademicSemester>(res, {
+  sendResponse<AcademicFaculty>(res, {
     success: true,
     statusCode: httpStatus.OK,
-    message: 'Academic Semester created successfully',
+    message: 'Academic Faculty created successfully',
     data: result,
   });
 });
 
-const getAllAcademicSemester: RequestHandler = catchAsync(async (req, res) => {
-  const filters = pick(req.query, academicSemesterFilterableFields);
+const getAllAcademicFaculty: RequestHandler = catchAsync(async (req, res) => {
+  const filters = pick(req.query, academicFacultyFilterableFields);
   const options = pick(req.query, ['limit', 'page', 'sortBy', 'sortOrder']);
 
-  const result = await AcademicSemesterService.getAllAcademicSemester(
+  const result = await AcademicFacultyService.getAllAcademicFaculty(
     filters,
     options
   );
@@ -30,29 +30,29 @@ const getAllAcademicSemester: RequestHandler = catchAsync(async (req, res) => {
   sendResponse(res, {
     success: true,
     statusCode: httpStatus.OK,
-    message: 'Academic Semesters retrived successfully',
+    message: 'Academic Facultys retrived successfully',
     meta: result.meta,
     data: result.data,
   });
 });
 
-const getUniqueAcademicSemesterById: RequestHandler = catchAsync(
+const getUniqueAcademicFacultyById: RequestHandler = catchAsync(
   async (req, res) => {
-    const result = await AcademicSemesterService.getUniqueAcademicSemesterById(
+    const result = await AcademicFacultyService.getUniqueAcademicFacultyById(
       req.params.id
     );
 
     sendResponse(res, {
       success: true,
       statusCode: httpStatus.OK,
-      message: 'Academic Semester retrived successfully',
+      message: 'Academic Faculty retrived successfully',
       data: result,
     });
   }
 );
 
-export const AcademicSemesterController = {
-  createAcademicSemester,
-  getAllAcademicSemester,
-  getUniqueAcademicSemesterById,
+export const AcademicFacultyController = {
+  createAcademicFaculty,
+  getAllAcademicFaculty,
+  getUniqueAcademicFacultyById,
 };
