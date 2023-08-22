@@ -1,7 +1,7 @@
 -- CreateTable
 CREATE TABLE "academic_semesters" (
     "id" TEXT NOT NULL,
-    "year" TEXT NOT NULL,
+    "year" INTEGER NOT NULL,
     "title" TEXT NOT NULL,
     "code" TEXT NOT NULL,
     "startMonth" TEXT NOT NULL,
@@ -75,6 +75,27 @@ CREATE TABLE "faculties" (
     CONSTRAINT "faculties_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "buildings" (
+    "id" TEXT NOT NULL,
+    "title" TEXT NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "buildings_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "rooms" (
+    "id" TEXT NOT NULL,
+    "roomNumber" TEXT NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+    "buildingId" TEXT NOT NULL,
+
+    CONSTRAINT "rooms_pkey" PRIMARY KEY ("id")
+);
+
 -- AddForeignKey
 ALTER TABLE "academic_departments" ADD CONSTRAINT "academic_departments_academicFacultyId_fkey" FOREIGN KEY ("academicFacultyId") REFERENCES "academic_faculties"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
@@ -92,3 +113,6 @@ ALTER TABLE "faculties" ADD CONSTRAINT "faculties_academicDepartmentId_fkey" FOR
 
 -- AddForeignKey
 ALTER TABLE "faculties" ADD CONSTRAINT "faculties_academicFacultyId_fkey" FOREIGN KEY ("academicFacultyId") REFERENCES "academic_faculties"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "rooms" ADD CONSTRAINT "rooms_buildingId_fkey" FOREIGN KEY ("buildingId") REFERENCES "buildings"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

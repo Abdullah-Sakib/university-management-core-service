@@ -44,8 +44,35 @@ const getUniqueStudentById: RequestHandler = catchAsync(async (req, res) => {
   });
 });
 
+const updateStudent: RequestHandler = catchAsync(async (req, res) => {
+  const { id } = req.params;
+  const payload = req.body;
+  const result = await StudentService.updateStudent(id, payload);
+
+  sendResponse(res, {
+    success: true,
+    statusCode: httpStatus.OK,
+    message: 'Student updated successfully',
+    data: result,
+  });
+});
+
+const deleteStudent: RequestHandler = catchAsync(async (req, res) => {
+  const { id } = req.params;
+  const result = await StudentService.deleteStudent(id);
+
+  sendResponse(res, {
+    success: true,
+    statusCode: httpStatus.OK,
+    message: 'Student deleted successfully',
+    data: result,
+  });
+});
+
 export const StudentController = {
   createStudent,
   getAllStudent,
   getUniqueStudentById,
+  updateStudent,
+  deleteStudent,
 };

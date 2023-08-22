@@ -9,7 +9,6 @@ import { AcademicDepartmentService } from './academicDepartment.service';
 
 const createAcademicDepartment: RequestHandler = catchAsync(
   async (req, res) => {
-    console.log(req.body);
     const result = await AcademicDepartmentService.createAcademicDepartment(
       req.body
     );
