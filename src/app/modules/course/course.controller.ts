@@ -32,7 +32,42 @@ const getAllCourses: RequestHandler = catchAsync(async (req, res) => {
   });
 });
 
+const getSingleCourse: RequestHandler = catchAsync(async (req, res) => {
+  const { id } = req.params;
+  const result = await CourseService.getSingleCourse(id);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Course fetched successfully',
+    data: result,
+  });
+});
+
+// const updateOneInDB = catchAsync(async (req: Request, res: Response) => {
+//     const { id } = req.params;
+//     const result = await CourseService.updateOneInDB(id, req.body);
+//     sendResponse(res, {
+//         statusCode: httpStatus.OK,
+//         success: true,
+//         message: 'Course updated successfully',
+//         data: result
+//     });
+// })
+
+const deleteCourse: RequestHandler = catchAsync(async (req, res) => {
+  const { id } = req.params;
+  const result = await CourseService.deleteCourse(id);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Course deleted successfully',
+    data: result,
+  });
+});
+
 export const CourseController = {
   createCourse,
   getAllCourses,
+  getSingleCourse,
+  deleteCourse,
 };

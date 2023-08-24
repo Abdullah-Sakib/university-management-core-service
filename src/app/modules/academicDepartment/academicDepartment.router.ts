@@ -6,9 +6,24 @@ import { AcademicDepartmentController } from './academicDepartment.controller';
 import { AcademicDepartmentValidation } from './academicDepartment.validation';
 const router = express.Router();
 
-router.get('/', AcademicDepartmentController.getAllAcademicDepartment);
+router.get(
+  '/',
+  auth(
+    ENUM_USER_ROLE.ADMIN,
+    ENUM_USER_ROLE.FACULTY,
+    ENUM_USER_ROLE.STUDENT,
+    ENUM_USER_ROLE.SUPER_ADMIN
+  ),
+  AcademicDepartmentController.getAllAcademicDepartment
+);
 router.get(
   '/:id',
+  auth(
+    ENUM_USER_ROLE.ADMIN,
+    ENUM_USER_ROLE.FACULTY,
+    ENUM_USER_ROLE.STUDENT,
+    ENUM_USER_ROLE.SUPER_ADMIN
+  ),
   AcademicDepartmentController.getUniqueAcademicDepartmentById
 );
 

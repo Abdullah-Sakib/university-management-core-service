@@ -1,13 +1,11 @@
 /* eslint-disable no-undef */
-import { Building, PrismaClient } from '@prisma/client';
+import { Building } from '@prisma/client';
 import { paginationHelpers } from '../../../helpers/paginationHelper';
 import { IGenericResponse } from '../../../interfaces/common';
 import { IPaginationOptions } from '../../../interfaces/pagination';
+import { prisma } from '../../../shared/prisma';
 import { buildingSearchableFields } from './building.constants';
 import { IBuildingFilterRequest } from './building.interface';
-// import { prisma } from '../../../shared/prisma';
-
-const prisma = new PrismaClient();
 
 const createBuilding = async (data: Building): Promise<Building> => {
   const result = await prisma.building.create({
@@ -65,7 +63,41 @@ const getAllBuildings = async (
   };
 };
 
+const getBuildingById = async (id: string): Promise<Building | null> => {
+  const result = await prisma.building.findUnique({
+    where: {
+      id,
+    },
+  });
+  return result;
+};
+
+const updateBuilding = async (
+  id: string,
+  payload: Partial<Building>
+): Promise<Building> => {
+  const result = await prisma.building.update({
+    where: {
+      id,
+    },
+    data: payload,
+  });
+  return result;
+};
+
+const deleteBuildingById = async (id: string): Promise<Building> => {
+  const result = await prisma.building.delete({
+    where: {
+      id,
+    },
+  });
+  return result;
+};
+
 export const BuildingService = {
   createBuilding,
   getAllBuildings,
+  getBuildingById,
+  updateBuilding,
+  deleteBuildingById,
 };

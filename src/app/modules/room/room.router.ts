@@ -12,6 +12,30 @@ router.post(
   validateRequest(RoomValidation.createRoomValidation),
   RoomController.createRoom
 );
-router.get('/', RoomController.getAllRooms);
+router.get('/:id', RoomController.getSingleRoom);
+
+router.get(
+  '/',
+  auth(
+    ENUM_USER_ROLE.ADMIN,
+    ENUM_USER_ROLE.FACULTY,
+    ENUM_USER_ROLE.STUDENT,
+    ENUM_USER_ROLE.SUPER_ADMIN
+  ),
+  RoomController.getAllRooms
+);
+
+router.patch(
+  '/:id',
+  validateRequest(RoomValidation.updateRoomValidation),
+  auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
+  RoomController.updateRoom
+);
+
+router.delete(
+  '/:id',
+  auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
+  RoomController.deleteRoom
+);
 
 export const RoomRouter = router;

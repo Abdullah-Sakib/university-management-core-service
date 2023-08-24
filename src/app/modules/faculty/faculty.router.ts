@@ -6,8 +6,26 @@ import { FacultyController } from './faculty.controller';
 import { FacultyValidation } from './faculty.validation';
 const router = express.Router();
 
-router.get('/', FacultyController.getAllFaculty);
-router.get('/:id', FacultyController.getUniqueFacultyById);
+router.get(
+  '/',
+  auth(
+    ENUM_USER_ROLE.ADMIN,
+    ENUM_USER_ROLE.FACULTY,
+    ENUM_USER_ROLE.STUDENT,
+    ENUM_USER_ROLE.SUPER_ADMIN
+  ),
+  FacultyController.getAllFaculty
+);
+router.get(
+  '/:id',
+  auth(
+    ENUM_USER_ROLE.ADMIN,
+    ENUM_USER_ROLE.FACULTY,
+    ENUM_USER_ROLE.STUDENT,
+    ENUM_USER_ROLE.SUPER_ADMIN
+  ),
+  FacultyController.getUniqueFacultyById
+);
 
 router.post(
   '/',

@@ -13,6 +13,21 @@ router.post(
   validateRequest(BuildingValidation.createBuildingValidation),
   BuildingController.createBuilding
 );
+router.get('/:id', BuildingController.getBuildingById);
+
 router.get('/', BuildingController.getAllBuildings);
+
+router.patch(
+  '/:id',
+  validateRequest(BuildingValidation.updateBuildingValidation),
+  auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
+  BuildingController.updateBuilding
+);
+
+router.delete(
+  '/:id',
+  auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
+  BuildingController.deleteBuildingById
+);
 
 export const BuildingRouter = router;
