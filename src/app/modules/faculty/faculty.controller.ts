@@ -44,8 +44,33 @@ const getUniqueFacultyById: RequestHandler = catchAsync(async (req, res) => {
   });
 });
 
+const assignCourses: RequestHandler = catchAsync(async (req, res) => {
+  const { id } = req.params;
+  const result = await FacultyService.assignCourses(id, req.body.courses);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Course (s) assigned successfully',
+    data: result,
+  });
+});
+
+const removeCourses: RequestHandler = catchAsync(async (req, res) => {
+  const { id } = req.params;
+
+  const result = await FacultyService.removeCourses(id, req.body.courses);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Course (s) deleted successfully',
+    data: result,
+  });
+});
+
 export const FacultyController = {
   createFaculty,
   getAllFaculty,
   getUniqueFacultyById,
+  assignCourses,
+  removeCourses,
 };

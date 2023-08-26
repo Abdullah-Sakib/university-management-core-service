@@ -43,16 +43,16 @@ const getSingleCourse: RequestHandler = catchAsync(async (req, res) => {
   });
 });
 
-// const updateOneInDB = catchAsync(async (req: Request, res: Response) => {
-//     const { id } = req.params;
-//     const result = await CourseService.updateOneInDB(id, req.body);
-//     sendResponse(res, {
-//         statusCode: httpStatus.OK,
-//         success: true,
-//         message: 'Course updated successfully',
-//         data: result
-//     });
-// })
+const updateOneInDB: RequestHandler = catchAsync(async (req, res) => {
+  const { id } = req.params;
+  const result = await CourseService.updateOneInDB(id, req.body);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Course updated successfully',
+    data: result,
+  });
+});
 
 const deleteCourse: RequestHandler = catchAsync(async (req, res) => {
   const { id } = req.params;
@@ -65,9 +65,35 @@ const deleteCourse: RequestHandler = catchAsync(async (req, res) => {
   });
 });
 
+const assignFaculies: RequestHandler = catchAsync(async (req, res) => {
+  const { id } = req.params;
+  const result = await CourseService.assignFaculies(id, req.body.faculties);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Course faculty assigned successfully',
+    data: result,
+  });
+});
+
+const removeFaculties: RequestHandler = catchAsync(async (req, res) => {
+  const { id } = req.params;
+
+  const result = await CourseService.removeFaculties(id, req.body.faculties);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Course faculty deleted successfully',
+    data: result,
+  });
+});
+
 export const CourseController = {
   createCourse,
   getAllCourses,
   getSingleCourse,
   deleteCourse,
+  updateOneInDB,
+  assignFaculies,
+  removeFaculties,
 };
