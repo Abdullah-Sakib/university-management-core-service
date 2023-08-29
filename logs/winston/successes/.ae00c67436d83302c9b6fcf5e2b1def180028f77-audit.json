@@ -114,6 +114,21 @@
             "date": 1693029663763,
             "name": "E:\\WEB\\Level-2\\Milestone-6-SQL\\university-management-core-service-starter\\logs\\winston\\successes\\phu-2023-26-08-12-success.log",
             "hash": "b0262dae8e8c45a9a79d3fe5665fade91c22ec8c74ddbd8be51eeb9c7feb741d"
+        },
+        {
+            "date": 1693281533027,
+            "name": "E:\\WEB\\Level-2\\Milestone-6-SQL\\university-management-core-service-starter\\logs\\winston\\successes\\phu-2023-29-08-09-success.log",
+            "hash": "d92154c37d21b34ebf161d8a9ae5a4a12285cba005559dbc1b0b61216af0bd3f"
+        },
+        {
+            "date": 1693284276898,
+            "name": "E:\\WEB\\Level-2\\Milestone-6-SQL\\university-management-core-service-starter\\logs\\winston\\successes\\phu-2023-29-08-10-success.log",
+            "hash": "d135d24eae9b33df28a456286401c02e5ea0bdd9a8baecc88918d83b3bea9b85"
+        },
+        {
+            "date": 1693285218497,
+            "name": "E:\\WEB\\Level-2\\Milestone-6-SQL\\university-management-core-service-starter\\logs\\winston\\successes\\phu-2023-29-08-11-success.log",
+            "hash": "295f1408505e3c198c7df420e160496ce5f1d2f003e9b982a8993acef918ad12"
         }
     ],
     "hashType": "sha256"
