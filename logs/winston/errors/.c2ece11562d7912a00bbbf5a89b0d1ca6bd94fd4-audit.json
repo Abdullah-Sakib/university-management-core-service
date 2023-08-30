@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "D:\\WEB\\Level-2\\Milestone-6-SQL\\university-management-core-service-starter\\logs\\winston\\errors\\.c2ece11562d7912a00bbbf5a89b0d1ca6bd94fd4-audit.json",
+    "files": [
+        {
+            "date": 1693407202538,
+            "name": "D:\\WEB\\Level-2\\Milestone-6-SQL\\university-management-core-service-starter\\logs\\winston\\errors\\phu-2023-30-08-20-error.log",
+            "hash": "07e28bf873f15b270a9e3038a60f16cc74fa72d95256b1a1098b0335806aaa65"
+        },
+        {
+            "date": 1693408171351,
+            "name": "D:\\WEB\\Level-2\\Milestone-6-SQL\\university-management-core-service-starter\\logs\\winston\\errors\\phu-2023-30-08-21-error.log",
+            "hash": "748d75da01fbda7c88c5da6b2aa6274efe9235abacff360419d83e92848660f7"
+        }
+    ],
+    "hashType": "sha256"
+}
