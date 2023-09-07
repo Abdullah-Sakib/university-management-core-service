@@ -86,18 +86,21 @@ const enrollIntoCourse = async (
       },
     });
 
+    console.log(offeredCourse.course.credits);
+
+    // ! This portion is not working. If I use static value in increment then it works but it if I use offeredCourse?.course?.credits then it doesn't work.
     await transactionClient.studentSemesterRegistration.updateMany({
       where: {
         student: {
-          id: student.id,
+          id: student?.id,
         },
         semesterRegistration: {
-          id: semesterRegistration.id,
+          id: semesterRegistration?.id,
         },
       },
       data: {
         totalCreditsTaken: {
-          increment: offeredCourse.course.credits,
+          increment: offeredCourse?.course?.credits,
         },
       },
     });
