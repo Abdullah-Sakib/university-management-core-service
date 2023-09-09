@@ -7,6 +7,13 @@ import { StudentValidation } from './student.validation';
 const router = express.Router();
 
 router.get('/', StudentController.getAllStudent);
+
+router.get(
+  '/my-courses',
+  auth(ENUM_USER_ROLE.STUDENT),
+  StudentController.myCourses
+);
+
 router.get('/:id', StudentController.getUniqueStudentById);
 
 router.post(
