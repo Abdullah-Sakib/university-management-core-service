@@ -16,6 +16,13 @@ router.get(
   ),
   FacultyController.getAllFaculty
 );
+
+router.get(
+  '/my-courses',
+  auth(ENUM_USER_ROLE.FACULTY),
+  FacultyController.myCourses
+);
+
 router.get(
   '/:id',
   auth(
@@ -32,6 +39,19 @@ router.post(
   auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
   validateRequest(FacultyValidation.createFacultyValidation),
   FacultyController.createFaculty
+);
+
+router.patch(
+  '/:id',
+  validateRequest(FacultyValidation.update),
+  auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
+  FacultyController.updateOneInDB
+);
+
+router.delete(
+  '/:id',
+  auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
+  FacultyController.deleteByIdFromDB
 );
 
 router.post(
