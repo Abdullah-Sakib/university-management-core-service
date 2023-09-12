@@ -101,6 +101,28 @@ const myCourses: RequestHandler = catchAsync(async (req, res) => {
   });
 });
 
+const getMyCourseStudents: RequestHandler = catchAsync(async (req, res) => {
+  const user = (req as any).user;
+  const filters = pick(req.query, [
+    'academicSemesterId',
+    'courseId',
+    'offeredCourseSectionId',
+  ]);
+  const options = pick(req.query, ['limit', 'page']);
+  const result = await FacultyService.getMyCourseStudents(
+    filters,
+    options,
+    user
+  );
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Faculty course students fetched successfully',
+    meta: result.meta,
+    data: result.data,
+  });
+});
+
 export const FacultyController = {
   createFaculty,
   getAllFaculty,
@@ -110,4 +132,5 @@ export const FacultyController = {
   assignCourses,
   removeCourses,
   myCourses,
+  getMyCourseStudents,
 };
