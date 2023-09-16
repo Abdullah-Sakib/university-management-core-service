@@ -16,4 +16,17 @@ router.post(
   AcademicSemesterController.createAcademicSemester
 );
 
+router.patch(
+  '/:id',
+  validateRequest(AcademicSemesterValidation.update),
+  auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
+  AcademicSemesterController.updateOneInDB
+);
+
+router.delete(
+  '/:id',
+  auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
+  AcademicSemesterController.deleteByIdFromDB
+);
+
 export const AcademicSemesterRouter = router;

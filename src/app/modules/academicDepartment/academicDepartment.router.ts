@@ -36,4 +36,17 @@ router.post(
   AcademicDepartmentController.createAcademicDepartment
 );
 
+router.patch(
+  '/:id',
+  validateRequest(AcademicDepartmentValidation.update),
+  auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
+  AcademicDepartmentController.updateOneInDB
+);
+
+router.delete(
+  '/:id',
+  auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
+  AcademicDepartmentController.deleteByIdFromDB
+);
+
 export const AcademicDepartmentRouter = router;

@@ -58,8 +58,32 @@ const getUniqueAcademicDepartmentById: RequestHandler = catchAsync(
   }
 );
 
+const updateOneInDB: RequestHandler = catchAsync(async (req, res) => {
+  const { id } = req.params;
+  const result = await AcademicDepartmentService.updateOneInDB(id, req.body);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'AcademicDepartment updated successfully',
+    data: result,
+  });
+});
+
+const deleteByIdFromDB: RequestHandler = catchAsync(async (req, res) => {
+  const { id } = req.params;
+  const result = await AcademicDepartmentService.deleteByIdFromDB(id);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'AcademicDepartment delete successfully',
+    data: result,
+  });
+});
+
 export const AcademicDepartmentController = {
   createAcademicDepartment,
   getAllAcademicDepartment,
   getUniqueAcademicDepartmentById,
+  updateOneInDB,
+  deleteByIdFromDB,
 };

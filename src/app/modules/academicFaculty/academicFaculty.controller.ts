@@ -51,8 +51,32 @@ const getUniqueAcademicFacultyById: RequestHandler = catchAsync(
   }
 );
 
+const updateOneInDB: RequestHandler = catchAsync(async (req, res) => {
+  const { id } = req.params;
+  const result = await AcademicFacultyService.updateOneInDB(id, req.body);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'AcademicFaculty updated successfully',
+    data: result,
+  });
+});
+
+const deleteByIdFromDB: RequestHandler = catchAsync(async (req, res) => {
+  const { id } = req.params;
+  const result = await AcademicFacultyService.deleteByIdFromDB(id);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'AcademicFaculty delete successfully',
+    data: result,
+  });
+});
+
 export const AcademicFacultyController = {
   createAcademicFaculty,
   getAllAcademicFaculty,
   getUniqueAcademicFacultyById,
+  updateOneInDB,
+  deleteByIdFromDB,
 };

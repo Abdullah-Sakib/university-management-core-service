@@ -51,8 +51,32 @@ const getUniqueAcademicSemesterById: RequestHandler = catchAsync(
   }
 );
 
+const updateOneInDB: RequestHandler = catchAsync(async (req, res) => {
+  const { id } = req.params;
+  const result = await AcademicSemesterService.updateOneInDB(id, req.body);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Academic Semster updated successfully',
+    data: result,
+  });
+});
+
+const deleteByIdFromDB: RequestHandler = catchAsync(async (req, res) => {
+  const { id } = req.params;
+  const result = await AcademicSemesterService.deleteByIdFromDB(id);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Academic Semster delete successfully',
+    data: result,
+  });
+});
+
 export const AcademicSemesterController = {
   createAcademicSemester,
   getAllAcademicSemester,
   getUniqueAcademicSemesterById,
+  updateOneInDB,
+  deleteByIdFromDB,
 };
