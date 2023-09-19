@@ -119,6 +119,41 @@
             "date": 1694847612678,
             "name": "D:\\WEB\\Level-2\\Milestone-6-SQL\\university-management-core-service-starter\\logs\\winston\\errors\\phu-2023-16-09-13-error.log",
             "hash": "c185d96a7db29a9a3b2683fb363ddf7d756149c25f56556f441f70c059aeca59"
+        },
+        {
+            "date": 1694925964399,
+            "name": "D:\\WEB\\Level-2\\Milestone-6-SQL\\university-management-core-service-starter\\logs\\winston\\errors\\phu-2023-17-09-10-error.log",
+            "hash": "30eec499afab2b98c70de076912cf9e105118b64153e192cf7fb6b1fdbedff24"
+        },
+        {
+            "date": 1694930148333,
+            "name": "D:\\WEB\\Level-2\\Milestone-6-SQL\\university-management-core-service-starter\\logs\\winston\\errors\\phu-2023-17-09-11-error.log",
+            "hash": "d9842d2890799cbb87b09f7e331b6eaa249e4c6fc2d8ae7680d6ba2eeab0b53d"
+        },
+        {
+            "date": 1694931612235,
+            "name": "D:\\WEB\\Level-2\\Milestone-6-SQL\\university-management-core-service-starter\\logs\\winston\\errors\\phu-2023-17-09-12-error.log",
+            "hash": "ab613d3f4e3b862d976abd2544d19854752baa7d65aea00d56207f3179b95322"
+        },
+        {
+            "date": 1695096274630,
+            "name": "D:\\WEB\\Level-2\\Milestone-6-SQL\\university-management-core-service-starter\\logs\\winston\\errors\\phu-2023-19-09-10-error.log",
+            "hash": "1fc98cd36fc132828db91dd34f6e720736b89f71bf4436ee84d265e7c8b247ba"
+        },
+        {
+            "date": 1695106202666,
+            "name": "D:\\WEB\\Level-2\\Milestone-6-SQL\\university-management-core-service-starter\\logs\\winston\\errors\\phu-2023-19-09-12-error.log",
+            "hash": "f994c28a3eb0825f738377534d8ead5748f379935f5cdbe62098ce2628d9a70d"
+        },
+        {
+            "date": 1695106853660,
+            "name": "D:\\WEB\\Level-2\\Milestone-6-SQL\\university-management-core-service-starter\\logs\\winston\\errors\\phu-2023-19-09-13-error.log",
+            "hash": "13a3cbc2376ed39327f443afdc3be741d546855c32097c47593f0480169c85c0"
+        },
+        {
+            "date": 1695152821646,
+            "name": "D:\\WEB\\Level-2\\Milestone-6-SQL\\university-management-core-service-starter\\logs\\winston\\errors\\phu-2023-20-09-01-error.log",
+            "hash": "b4903a6234e0fdffffa8a2f4d64b4d196e10d27f1392812318da5e9b7e30a02f"
         }
     ],
     "hashType": "sha256"

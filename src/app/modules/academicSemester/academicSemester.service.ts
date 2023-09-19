@@ -8,6 +8,8 @@ import { prisma } from '../../../shared/prisma';
 import { RedisClient } from '../../../shared/redis';
 import {
   EVENT_ACADEMIC_SEMESTER_CREATED,
+  EVENT_ACADEMIC_SEMESTER_DELETED,
+  EVENT_ACADEMIC_SEMESTER_UPDATED,
   academicSemesterSearchableFields,
   academicSemesterTitleCodeMapper,
 } from './academicSemester.constants';
@@ -114,6 +116,13 @@ const updateOneInDB = async (
     },
     data: payload,
   });
+
+  if (result) {
+    await RedisClient.publish(
+      EVENT_ACADEMIC_SEMESTER_UPDATED,
+      JSON.stringify(result)
+    );
+  }
   return result;
 };
 
@@ -124,6 +133,12 @@ const deleteByIdFromDB = async (id: string): Promise<AcademicSemester> => {
     },
   });
 
+  if (result) {
+    await RedisClient.publish(
+      EVENT_ACADEMIC_SEMESTER_DELETED,
+      JSON.stringify(result)
+    );
+  }
   return result;
 };
 

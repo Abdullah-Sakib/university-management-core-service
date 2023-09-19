@@ -63,11 +63,11 @@ model Student {
   firstName    String
   lastName     String
   middleName   String
-  profileImage String
+  profileImage String?
   email        String
   contactNo    String
   gender       String
-  bloodgroup   String
+  bloodGroup   String?
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 
@@ -99,7 +99,7 @@ model Faculty {
   email        String
   contactNo    String
   gender       String
-  bloodgroup   String
+  bloodGroup   String?
   designation  String
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt

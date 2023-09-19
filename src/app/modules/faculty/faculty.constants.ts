@@ -26,3 +26,5 @@ export const facultyFilterableFields = [
   'academicFacultyId',
   'searchTerm',
 ];
+
+export const EVENT_FACULTY_CREATED = 'faculty.created';

@@ -5,6 +5,7 @@ import { IPaginationOptions } from '../../../interfaces/pagination';
 import { prisma } from '../../../shared/prisma';
 import { RedisClient } from '../../../shared/redis';
 import {
+  EVENT_ACADEMIC_DEPARTMENT_CREATED,
   EVENT_ACADEMIC_DEPARTMENT_DELETED,
   EVENT_ACADEMIC_DEPARTMENT_UPDATED,
   academicDepartmentSearchableFields,
@@ -17,6 +18,13 @@ const createAcademicDepartment = async (
   const result = await prisma.academicDepartment.create({
     data,
   });
+
+  if (result) {
+    await RedisClient.publish(
+      EVENT_ACADEMIC_DEPARTMENT_CREATED,
+      JSON.stringify(result)
+    );
+  }
 
   return result;
 };
