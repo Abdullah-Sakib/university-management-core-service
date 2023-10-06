@@ -26,8 +26,8 @@ const createStudentValidation = z.object({
     gender: z.string({
       required_error: 'gender is required',
     }),
-    bloodgroup: z.string({
-      required_error: 'bloodgroup is required',
+    bloodGroup: z.string({
+      required_error: 'bloodGroup is required',
     }),
     academicSemesterId: z.string({
       required_error: 'academicSemesterId is required',
@@ -51,7 +51,7 @@ const updateStudentValidation = z.object({
     email: z.string().optional(),
     contactNo: z.string().optional(),
     gender: z.string().optional(),
-    bloodgroup: z.string().optional(),
+    bloodGroup: z.string().optional(),
     academicSemesterId: z.string().optional(),
     academicDepartmentId: z.string().optional(),
     academicFacultyId: z.string().optional(),
