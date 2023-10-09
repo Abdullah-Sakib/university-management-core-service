@@ -67,9 +67,7 @@ const deleteByIdFromDB = catchAsync(async (req: Request, res: Response) => {
 
 const startMyRegistration = catchAsync(async (req: Request, res: Response) => {
   const user = (req as any).user;
-  const result = await SemesterRegistrationService.startMyRegistration(
-    user.userId
-  );
+  const result = await SemesterRegistrationService.startMyRegistration(user.id);
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
@@ -82,7 +80,7 @@ const enrollIntoCourse = catchAsync(async (req: Request, res: Response) => {
   const user = (req as any).user;
 
   const result = await SemesterRegistrationService.enrollIntoCourse(
-    user.userId,
+    user.id,
     req.body
   );
 
@@ -97,7 +95,7 @@ const enrollIntoCourse = catchAsync(async (req: Request, res: Response) => {
 const withdrawFromCourse = catchAsync(async (req: Request, res: Response) => {
   const user = (req as any).user;
   const result = await SemesterRegistrationService.withdrewFromCourse(
-    user.userId,
+    user.id,
     req.body
   );
   sendResponse(res, {
@@ -125,9 +123,7 @@ const confirmMyRegistration = catchAsync(
 
 const getMyRegistration = catchAsync(async (req: Request, res: Response) => {
   const user = (req as any).user;
-  const result = await SemesterRegistrationService.getMyRegistration(
-    user.userId
-  );
+  const result = await SemesterRegistrationService.getMyRegistration(user.id);
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
@@ -152,7 +148,7 @@ const getMySemesterRegCouses = catchAsync(
   async (req: Request, res: Response) => {
     const user = (req as any).user;
     const result = await SemesterRegistrationService.getMySemesterRegCouses(
-      user.userId
+      user.id
     );
     sendResponse(res, {
       statusCode: httpStatus.OK,
