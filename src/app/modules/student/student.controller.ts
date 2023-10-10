@@ -72,7 +72,8 @@ const deleteStudent: RequestHandler = catchAsync(async (req, res) => {
 const myCourses: RequestHandler = catchAsync(async (req, res) => {
   const user = (req as any).user;
   const filter = pick(req.query, ['courseId', 'academicSemesterId']);
-  const result = await StudentService.myCourses(user.userId, filter);
+
+  const result = await StudentService.myCourses(user.id, filter);
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
@@ -84,7 +85,7 @@ const myCourses: RequestHandler = catchAsync(async (req, res) => {
 const getMyCourseSchedules: RequestHandler = catchAsync(async (req, res) => {
   const user = (req as any).user;
   const filter = pick(req.query, ['courseId', 'academicSemesterId']);
-  const result = await StudentService.getMyCourseSchedules(user.userId, filter);
+  const result = await StudentService.getMyCourseSchedules(user.id, filter);
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
@@ -95,7 +96,7 @@ const getMyCourseSchedules: RequestHandler = catchAsync(async (req, res) => {
 
 const myAcademicInfo: RequestHandler = catchAsync(async (req, res) => {
   const user = (req as any).user;
-  const result = await StudentService.getMyAcademicInfo(user.userId);
+  const result = await StudentService.getMyAcademicInfo(user.id);
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
